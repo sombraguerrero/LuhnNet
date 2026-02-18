@@ -32,11 +32,13 @@ namespace LuhnNet
         /// </summary>
         public static string Generate()
         {
+            const string prefix = "600649666921";
             long num = _random.NextInt64();
             string number = num.ToString()
-                .PadLeft(18, '0')
-                .Substring(0, 18);
-            return number + CalculateCheckDigit(number);
+                .PadLeft(6, '0')
+                .Substring(0, 6);
+            string input = prefix + number;
+            return input + CalculateCheckDigit(input);
         }
 
         /// <summary>
