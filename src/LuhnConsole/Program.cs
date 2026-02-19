@@ -3,7 +3,8 @@
 string luhn, state;
 int n = 10;
 state = "is";
-if (args.Length == 1 && args[0].ToLower().Equals("-c"))
+bool doCheck = args.Length == 1 && args[0].ToLower().Equals("-c");
+if (doCheck)
 {
     Console.Write("Enter a number to validate: ");
     luhn = Console.ReadLine();
@@ -18,8 +19,11 @@ else
 {
     Console.WriteLine($"Here are {n} test numbers!");
 }
-for (int i = 1; i <= n; i++)
+if (!doCheck)
 {
-    Console.WriteLine(Luhn.Generate());
+    for (int i = 1; i <= n; i++)
+    {
+        Console.WriteLine(Luhn.Generate());
+    }
 }
 Console.ReadKey();
