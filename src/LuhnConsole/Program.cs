@@ -17,6 +17,8 @@ else if (args.Length == 1 && int.TryParse(args[0], out n))
 }
 else
 {
+    if (n == 0)
+        n = new Random().Next(1, 50);
     Console.WriteLine($"Here are {n} test numbers!");
 }
 if (!doCheck)
