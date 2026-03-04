@@ -60,7 +60,7 @@ namespace LuhnNet
 
         private static string RemoveSpaces(this string text) => text.Replace(" ", "");
 
-        private static byte Sum(string number)
+        public static byte Sum(string number)
         {
             var length = number.Length;
             byte sum = 0;
