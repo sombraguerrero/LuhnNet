@@ -1,6 +1,6 @@
 ﻿using LuhnNet;
 
-string luhn, state, sansCheck;
+string? luhn, state, sansCheck;
 int n = 10;
 state = "is";
 bool doCheck = args.Length == 1 && args[0].ToLower().Equals("-c");

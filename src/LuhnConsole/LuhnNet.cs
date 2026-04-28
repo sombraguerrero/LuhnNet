@@ -1,14 +1,11 @@
-﻿using System;
-using System.Text;
-
-namespace LuhnNet
+﻿namespace LuhnNet
 {
     /// <summary>
     /// Provides methods to perform Luhn algorithm validations.
     /// </summary>
     public static class Luhn
     {
-        private static readonly byte[] _doubledValues = new byte[] { 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
+        private static readonly byte[] _doubledValues = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9];
         private static readonly Random _random = new Random();
 
         /// <summary>
@@ -32,11 +29,10 @@ namespace LuhnNet
         /// </summary>
         public static string Generate()
         {
-            const string prefix = "600649666921";
+            const string prefix = "6006496669";
             long num = _random.NextInt64();
             string number = num.ToString()
-                .PadLeft(6, '0')
-                .Substring(0, 6);
+                .PadLeft(8, '0')[..8];
             string input = prefix + number;
             return input + CalculateCheckDigit(input);
         }
